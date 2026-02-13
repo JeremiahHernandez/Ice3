@@ -101,5 +101,19 @@ begin
 	
 	-- CONCURRENT STATEMENTS --------
 	led(14 downto 4) <= (others => '0'); -- Ground unused LEDs
+	w_sw0  <= sw(0);
+    w_sw1  <= sw(1);
+    w_sw2  <= sw(2);
+    w_sw3  <= sw(3);
+    w_sw4  <= sw(4);
+    w_sw12 <= sw(12);
+    w_sw13 <= sw(13);
+    w_sw14 <= sw(14);
+    w_sw15 <= sw(15);
+    led(0)  <= w_led0;
+    led(1)  <= w_led1;
+    led(2)  <= w_led2;
+    led(3)  <= w_led3;
+    led(15) <= w_led15;
 	---------------------------------
 end top_basys3_arch;
