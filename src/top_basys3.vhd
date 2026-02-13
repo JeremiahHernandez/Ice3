@@ -54,14 +54,49 @@ entity top_basys3 is
 end top_basys3;
 
 architecture top_basys3_arch of top_basys3 is 
-	
+	component ripple_adder is
+    Port ( A : in STD_LOGIC_VECTOR (3 downto 0);
+           B : in STD_LOGIC_VECTOR (3 downto 0);
+           Cin : in STD_LOGIC;
+           S : out STD_LOGIC_VECTOR (3 downto 0);
+           Cout : out STD_LOGIC);
+    end component;
     -- declare the component of your top-level design
 
-    -- declare any signals you will need	
+    -- declare any signals you will need
+    signal w_sw0 : std_logic := '0';
+    signal w_sw1 : std_logic := '0';
+    signal w_sw2 : std_logic := '0';
+    signal w_sw3 : std_logic := '0';
+    signal w_sw4 : std_logic := '0';
+    signal w_sw12 : std_logic := '0';
+    signal w_sw13 : std_logic := '0';
+    signal w_sw14 : std_logic := '0';
+    signal w_sw15 : std_logic := '0';
+    signal w_led0 : std_logic := '0';
+    signal w_led1 : std_logic := '0';
+    signal w_led2 : std_logic := '0';
+    signal w_led3 : std_logic := '0';
+    signal w_led15 : std_logic := '0';
   
 begin
 	-- PORT MAPS --------------------
-   
+   ripple_inst : ripple_adder port map(
+    A(0) => w_sw1,
+    A(1) => w_sw2,
+    A(2) => w_sw3,
+    A(3) => w_sw4,
+    B(0) => w_sw12,
+    B(1) => w_sw13,
+    B(2) => w_sw14,
+    B(3) => w_sw15,
+    Cin  => w_sw0,
+    S(0) => w_led0,
+    S(1) => w_led1,
+    S(2) => w_led2,
+    S(3) => w_led3,
+    Cout => w_led15
+   );
 	---------------------------------
 	
 	-- CONCURRENT STATEMENTS --------
